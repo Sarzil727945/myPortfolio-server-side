@@ -18,7 +18,6 @@ const auth = {
     domain: process.env.EMAIL_DOMAIN,
   }
 }
-
 const transporter = nodemailer.createTransport(mg(auth));
 
 // send confirmation email 
@@ -30,6 +29,7 @@ const sendConfirmationEmail = (user) => {
     text: "Hello world!", // plain text body
     html: `
     <div>
+    <p>Dear ${user.name},</p>
       <p>Thank you so much. Developed with Sarzil Muntaha Contact Form Submission successful !!</p>
     </div>
     `, // html body
@@ -41,7 +41,6 @@ const sendConfirmationEmail = (user) => {
     }
   });
 }
-
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.2a9l2qr.mongodb.net/?retryWrites=true&w=majority`;
