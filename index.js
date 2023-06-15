@@ -25,23 +25,19 @@ const transporter = nodemailer.createTransport(mg(auth));
 const sendConfirmationEmail = (user) => {
   transporter.sendMail({
     from: "sarzilmuntaha@gmail.com", // verified sender email
-    to: "sarzilmuntaha@gmail.com", // recipient email
-    subject: "Send your message success", // Subject line
+    to: user.email, // recipient email
+    subject: "Developed with Sarzil Muntaha", // Subject line
     text: "Hello world!", // plain text body
     html: `
     <div>
-      <h2>User Message</h2>
-      <p>Name: ${user.name}</p>
-      <p>Email: ${user.email}</p>
-      <p>Subject: ${user.subject}</p>
-      <p>Message: ${user.message}</p>
+      <p>Thank you so much. Developed with Sarzil Muntaha Contact Form Submission successful !!</p>
     </div>
     `, // html body
   }, function (error, info) {
     if (error) {
       console.log(error);
     } else {
-      console.log('Email sent');
+      console.log('');
     }
   });
 }
