@@ -3,9 +3,9 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
 require('dotenv').config();
+// send massage 
 const nodemailer = require("nodemailer");
 const mg = require('nodemailer-mailgun-transport');
-
 
 
 // middleware 
@@ -24,7 +24,7 @@ const transporter = nodemailer.createTransport(mg(auth));
 // send confirmation email 
 const sendConfirmationEmail = (user) => {
   transporter.sendMail({
-    from: user.email, // verified sender email
+    from: "sarzilmuntaha@gmail.com", // verified sender email
     to: "sarzilmuntaha@gmail.com", // recipient email
     subject: "Send your message success", // Subject line
     text: "Hello world!", // plain text body
